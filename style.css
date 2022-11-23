@@ -1,0 +1,103 @@
+:root{
+    --text-color:#c4c4c4;
+    --background-color:#005eb8;
+    --accent-color:rgb(0, 22, 83);
+}
+
+body{
+    word-break: keep-all;
+    margin:0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    background-color:#005eb8;
+    padding:8px 12px;
+}
+
+.navbar__logo{
+    font-size: 24px;
+    color:white;
+}
+
+.navbar__menu{
+    display:flex;
+    list-style: none;
+    justify-content: center;
+    padding-left : 0px;
+    width:100%;
+
+}
+
+
+.navbar__menu li{
+    padding:8px 20px; 
+}
+
+.navbar__menu a:hover{
+    color:rgb(0, 22, 83);
+}
+
+.navbar__icons {
+    display : flex;
+    justify-content:right;
+    width:100%;
+}
+
+.navbar__icons img {
+    padding : 8px 12px ;
+}
+
+.navbar__toggleBtn{
+    display:none;
+    position: absolute;
+    right:32px;
+    font-size: 24px;
+
+}
+/* 반응형 웹: 미디어 쿼리 */
+
+@media screen and (max-width : 768px){  
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+
+    .navbar__menu{
+        display:none;
+        flex-direction:column;
+        align-items:center;
+        width:100%;
+    }
+
+    .navbar__menu li{
+        width:100%;
+        text-align:center;
+    }
+
+    .navbar__icons{
+        display: none;
+        justify-content: center;
+        width:100%;
+    }
+
+    .navbar__toggleBtn{
+        display: block;
+    }
+
+    .navbar__menu.active,
+    .navbar__icons.active{
+        display :flex;
+    }
+
+}
+
