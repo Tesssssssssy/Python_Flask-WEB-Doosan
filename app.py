@@ -18,13 +18,9 @@ def register():
 def board():
     return render_template('board.html')
 
-# @app.route('/mypage')
-# def register():
-#     return render_template('mypage.html')
-
-# @app.route('/input')
-# def register():
-#     return render_template('input.html')
+@app.route('/mypage')
+def mypage():
+    return render_template('mypage.html')
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)

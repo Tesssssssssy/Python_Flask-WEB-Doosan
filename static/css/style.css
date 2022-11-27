@@ -101,4 +101,6 @@ a{
 
 }
 
-#select-box {min-width:320px; max-width:30%; width:100%; margin:0 auto; padding:2em; text-align:center; background:rgb(76, 143, 220);}
+#select-box {min-width:320px; max-width:30%; width:100%; margin:0 auto; padding:2em; text-align:center;} 
+#mypage {text-align: center;}
+table.table {margin-left: auto; margin-right: auto;}
