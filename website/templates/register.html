@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% block content %}
+
+    <form method="POST">
+      <h2 align="center">회원가입</h2>
+      <div class="form-group">
+        <label for="name">성명</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="성명" />
+      </div>
+      <div class="form-group">
+        <label for="email">이메일</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="이메일" />
+      </div>
+      <div class="form-group">
+        <label for="password1">비밀번호</label>
+        <input type="password" class="form-control" id="password1" name="password1" placeholder="비밀번호" />
+      </div>
+      <div class="form-group">
+        <label for="password2">비밀번호 확인</label>
+        <input type="password" class="form-control" id="password2" name="password2" placeholder="비밀번호 확인" />
+      </div>
+    <div class="form-group">
+      <label for="age">연령</label>
+      <input type="text" name="age" id="age" class="form-control" placeholder="연령">
+    </div>
+    <div class="form-group">
+      <label for="weight">체중</label>
+      <input type="text" name="weight" id="weight" class="form-control" placeholder="체중">
+    </div>
+    <div class="form-group">
+      <label for="gender">성별: </label>
+        <select name="gender" id="gender" class="form-control">
+          <option value="" disabled selected></option>
+            <option value="1">남자</option>
+            <option value="0">여자</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="graduation">최종 학력: </label>
+        <select name="graduation" id="graduation" class="form-control">
+          <option value="" disabled selected></option>
+            <option value="3">대졸 이상</option>
+            <option value="2">고졸</option>
+            <option value="1">중졸</option>
+            <option value="0">초졸 이하</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="hearing">청력: </label>
+        <select name="hearing" id="hearing" class="form-control">
+          <option value="" disabled selected></option>
+            <option value="5">심도난청 - 큰 소리조차 잘 듣지 못한다.</option>
+            <option value="4">고도난청 - 대단히 큰 소리를 내야 듣는다.</option>
+            <option value="3">중고도난청 - 큰 소리를 내야 알아듣는다.</option>
+            <option value="2">중도난청 - 보통의 대화소리를 잘 못 듣는다.</option>
+            <option value="1">경도난청 - 작은 소리가 안 들려 간혹 실수가 있다.</option>
+            <option value="0">정상 - 속삭이는 소리까지 들을 수 있다.</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="signt">시력: </label>
+        <select name="sight" id="sight" class="form-control">
+          <option value="" disabled selected></option>
+            <option value="1">양쪽 눈 시력의 평균 0.8 이상</option>
+            <option value="0">양쪽 눈 시력의 평균 0.8 미만</option>
+        </select>
+    </div> 
+    </br></br>
+        <button type="submit" class="btn btn-primary">회원가입</button>
+  </form>
+
+{% endblock %}
+
+     
+      

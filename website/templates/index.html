@@ -1,42 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"/>
-    <title>두산에너빌리티 안전</title>
-    <script src="https://kit.fontawesome.com/74d22fe6db.js" crossorigin="anonymous"></script>
-    <script src="../main.js" defer></script>
-</head>
-
-<body>
-    <nav class="navbar">
-        <div class="navbar__logo">
-            <!-- 로고 삽입하기 -->
-            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="두산 애너빌리티"> 
-        </div>
-
-
-        <ul class="navbar__menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/mypage">마이페이지</a></li>
-            <li><a href="/login">로그인</a></li>
-            <li><a href="/board">게시판</a></li>
-        </ul>
-        
-        <ul class="navbar__icons"> 
-            <img src="{{ url_for('static', filename='img/logo-kr-w.png') }}" alt="두산애너빌리티">
-
-        </ul>
-
-        <a href="/#" class="navbar__toggleBtn">
-            <i class="fa-sharp fa-solid fa-bars"></i>
-        </a>
-    </nav>
-</br></br>
-
+{% extends "base.html" %} {% block content%}
 
     <div id="select-box">
     <h1>정보를 입력해주세요</h1>
@@ -98,8 +60,5 @@
         </br></br>
         <input type="submit" value="정보 입력">
     </form>
-
-    
-</div>
-</body>
-</html>
+    </div>
+{% endblock %}
