@@ -1,47 +1,59 @@
 {% extends "base.html" %} {% block content %}
 
-<h1>마이페이지</h1>
-
-<table class="table">
-    <tr>
-        <td>아이디</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>비밀번호</td>
-        <td><input type="text" value=""></td>
-    </tr>
-    <tr>
-        <td>이름</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>연령</td>
-        <td><input type="text" value=""></td>
-    </tr>
-    <tr>
-        <td>성별</td>
-        <td><input type="text" value=""></td>
-    </tr>
-    <tr>
-        <td>최종학력</td>
-        <td><input type="text" value=""></td>
-    </tr>
-    <tr>
-        <td>청력</td>
-        <td><input type="text" value=""></td>
-    </tr>
-    <tr>
-        <td>시력</td>
-        <td><input type="text" value=""></td>
-    </tr>
-    <tr>
-        <td>체중</td>
-        <td><input type="text" value=""></td>
-    </tr>       
-</table>
-
-<button type="submit" id="수정완료">수정완료</button>
-
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <form method="GET" action="/mypage/update">
+                <fieldset disabled="disabled">
+                    <h2 align="center">마이페이지</h2>
+                    <!-- 기본 정보 영역 -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">성명</label>
+                        <input name="name" type="text" class="form-control" id="name"
+                            placeholder="{{ current_user.name }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">이메일</label>
+                        <input name="email" type="email" class="form-control" id="email"
+                            aria-describedby="emailHelp" placeholder="{{ current_user.email }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label">연령</label>
+                        <input name="age" type="text" class="form-control" id="age"
+                            placeholder="{{ current_user.age }}세">
+                    </div>
+                    <div class="mb-3">
+                        <label for="weight" class="form-label">체중</label>
+                        <input name="weight" type="text" class="form-control" id="weight"
+                            placeholder="{{ current_user.weight }}kg">
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">성별</label>
+                        <input name="gender" type="text" class="form-control" id="gender"
+                            placeholder="{{ current_user.gender }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="graduation" class="form-label">최종학력</label>
+                        <input name="graduation" type="text" class="form-control" id="graduation"
+                            placeholder="{{ current_user.graduation }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="hearing" class="form-label">청력</label>
+                        <input name="hearing" type="text" class="form-control" id="hearing"
+                            placeholder="{{ current_user.hearing }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="sight" class="form-label">시력</label>
+                        <input name="sight" type="text" class="form-control" id="sight"
+                            placeholder="{{ current_user.sight }}">
+                    </div>
+                </fieldset>
+            </br></br>
+                <button type="submit" class="btn btn-primary">정보 수정</button>
+            </br></br></br></br>
+            </form>
+        </div>
+    </div>
+</div>
+                    
 {% endblock %}

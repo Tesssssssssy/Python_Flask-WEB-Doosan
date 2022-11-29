@@ -82,7 +82,7 @@ def register():
                 )
             db.session.add(new_user)
             db.session.commit()
-            login_user(user, remember=True)
+            login_user(new_user, remember=True)
             flash('회원가입이 완료되었습니다!', category='success')
             return redirect(url_for('views.home'))
         
