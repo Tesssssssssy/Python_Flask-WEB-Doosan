@@ -7,11 +7,20 @@
         <div class="col-sm-6">
             <form method="POST" enctype="multipart/form-data">
                 <h2 align="center">마이페이지 수정</h2>
+                <fieldset disabled="disabled">
+                <div class="mb-3">
+                    <label for="auth" class="form-label">직급</label>
+                    <input name="auth" type="text" class="form-control" id="auth"
+                        placeholder="{{ current_user.auth }}">
+                </div>
+                </fieldset>
+                <fieldset disabled="disabled">
                 <div class="mb-3">
                     <label for="name" class="form-label">성명</label>
                     <input name="name" type="text" class="form-control" id="name"
                         placeholder="{{ current_user.name }}">
                 </div>
+                </fieldset>
                 <fieldset disabled="disabled">
                     <div class="mb-3">
                         <label for="email" class="form-label">이메일</label>
@@ -20,14 +29,14 @@
                     </div>
                 </fieldset>
                 <div class="mb-3">
-                    <label for="age" class="form-label">연령</label>
+                    <label for="age" class="form-label">연령(세)</label>
                     <input name="age" type="text" class="form-control" id="age"
-                        placeholder="{{ current_user.age }}세">
+                        placeholder="{{ current_user.age }}">
                 </div>
                 <div class="mb-3">
-                    <label for="weight" class="form-label">체중</label>
+                    <label for="weight" class="form-label">체중(kg)</label>
                     <input name="weight" type="text" class="form-control" id="weight"
-                        placeholder="{{ current_user.weight }}kg">
+                        placeholder="{{ current_user.weight }}">
                 </div>
                 <div class="mb-3">
                     <label for="gender" class="form-label">성별: </label>

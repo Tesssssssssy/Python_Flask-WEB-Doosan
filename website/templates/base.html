@@ -17,34 +17,46 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
     />
-    <title>두산에너빌리티 안전</title>
+    <title>두산에너빌리티 안전 예측</title>
     <script src="https://kit.fontawesome.com/74d22fe6db.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src={{ url_for('static', filename='main.js')}} defer></script>
 </head>
 
 <body>
     <nav class="navbar">
-        <div class="navbar__logo">
+        <a class="navbar__logo">
             <!-- 로고 삽입하기 -->
             <img src="{{ url_for('static', filename='img/logo.png') }}" alt="두산 애너빌리티"> 
-        </div>
+        </a>
 
-
-        <ul class="navbar__menu">
+          <ul class="navbar__menu">
             {% if current_user.is_authenticated %}
+              {% if current_user.auth == "관리자" %}
+              <li><a>{{ current_user.name }}님</a></li>
+              <li><a href="/logout">로그아웃</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/mypage">마이페이지</a></li>
+              <li><a href="/board">게시판</a></li>
+              <li><a href="/admin">관리자</a></li>
+              {% else %}
+              <li><a>{{ current_user.name }}님</a></li>
+              <li><a href="/logout">로그아웃</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/mypage">마이페이지</a></li>
+              <li><a href="/board">게시판</a></li>
+              {% endif %}
+            {% else %}
             <li><a href="/">Home</a></li>
             <li><a href="/mypage">마이페이지</a></li>
-            <li><a href="/logout">로그아웃</a></li>
-            <li><a href="/board">게시판</a></li>
-            {% else %}
             <li><a href="/login">로그인</a></li>
-            {% endif %}
-        </ul>
+            <li><a href="/board">게시판</a></li>
+            {% endif%}
+          </ul>
         
-        <ul class="navbar__icons"> 
+        <div class="navbar__icons"> 
             <img src="{{ url_for('static', filename='img/logo-kr-w.png') }}" alt="두산애너빌리티">
 
-        </ul>
+        </div>
 
         <a href="/#" class="navbar__toggleBtn">
             <i class="fa-sharp fa-solid fa-bars"></i>

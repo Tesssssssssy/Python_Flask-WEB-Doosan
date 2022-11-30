@@ -23,6 +23,7 @@ def mypage_update():
         changed = False # 변경 여부가 있는 지 확인
         
         # 네임, 비밀번호 변경여부 확인
+        auth = request.form.get('auth')
         name = request.form.get('name')
         password = request.form.get('password')
         age = request.form.get('age')
@@ -32,6 +33,17 @@ def mypage_update():
         hearing = request.form.get('hearing')
         sight = request.form.get('sight')
         
+        # 직급 입력 여부 및 유효성 검사
+        if auth:
+            db_user = User.query.filter_by(auth=auth).first()
+            if len(auth) < 2:
+                flash("직급을 선택해주세요.", category="error")
+                return redirect(request.url)
+            else:
+                user = User.query.get(current_user.id)
+                user.auth = auth
+                db.session.commit()
+                changed = True
         
         # 닉네임 입력 여부 및 유효성 검사
         if name:

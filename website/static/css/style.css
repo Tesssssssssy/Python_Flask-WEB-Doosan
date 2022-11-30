@@ -1,7 +1,7 @@
 :root{
-    --text-color:#c4c4c4;
+    --text-color:#ffffff;
     --background-color:#005eb8;
-    --accent-color:rgb(0, 22, 83);
+    --accent-color:rgb(255, 0, 0);
 }
 
 body{
@@ -26,6 +26,7 @@ a{
 .navbar__logo{
     font-size: 24px;
     color:white;
+    padding-left: 0px;
 }
 
 .navbar__menu{
@@ -34,16 +35,7 @@ a{
     justify-content: center;
     padding-left : 0px;
     width:100%;
-
-}
-
-
-.navbar__menu li{
-    padding:8px 20px; 
-}
-
-.navbar__menu a:hover{
-    color:rgb(0, 22, 83);
+    color: white !important;
 }
 
 .navbar__icons {
@@ -51,6 +43,16 @@ a{
     justify-content:right;
     width:100%;
 }
+
+.navbar__menu li{
+    padding:8px 20px; 
+}
+
+.navbar__menu a:hover{
+    color:rgb(255, 0, 0);
+}
+
+
 
 .navbar__icons img {
     padding : 8px 12px ;

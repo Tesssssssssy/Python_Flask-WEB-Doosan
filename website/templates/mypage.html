@@ -8,6 +8,11 @@
                     <h2 align="center">마이페이지</h2>
                     <!-- 기본 정보 영역 -->
                     <div class="mb-3">
+                        <label for="auth" class="form-label">직급</label>
+                        <input name="auth" type="text" class="form-control" id="auth"
+                            placeholder="{{ current_user.auth }}">
+                    </div>
+                    <div class="mb-3">
                         <label for="name" class="form-label">성명</label>
                         <input name="name" type="text" class="form-control" id="name"
                             placeholder="{{ current_user.name }}">
@@ -18,14 +23,14 @@
                             aria-describedby="emailHelp" placeholder="{{ current_user.email }}">
                     </div>
                     <div class="mb-3">
-                        <label for="age" class="form-label">연령</label>
+                        <label for="age" class="form-label">연령(세)</label>
                         <input name="age" type="text" class="form-control" id="age"
-                            placeholder="{{ current_user.age }}세">
+                            placeholder="{{ current_user.age }}">
                     </div>
                     <div class="mb-3">
-                        <label for="weight" class="form-label">체중</label>
+                        <label for="weight" class="form-label">체중(kg)</label>
                         <input name="weight" type="text" class="form-control" id="weight"
-                            placeholder="{{ current_user.weight }}kg">
+                            placeholder="{{ current_user.weight }}">
                     </div>
                     <div class="mb-3">
                         <label for="gender" class="form-label">성별</label>

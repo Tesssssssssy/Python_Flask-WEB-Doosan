@@ -4,6 +4,7 @@ from flask_login import UserMixin
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
+    auth = db.Column(db.String(50))
     name = db.Column(db.String(100))
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
@@ -13,4 +14,5 @@ class User(db.Model, UserMixin):
     graduation = db.Column(db.String(100))
     hearing = db.Column(db.String(100))
     sight = db.Column(db.String(100))
+    
     

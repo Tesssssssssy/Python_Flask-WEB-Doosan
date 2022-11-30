@@ -11,6 +11,7 @@ def login():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
+        name = request.form.get('name')
         
         user = User.query.filter_by(email=email).first()
         if user:
@@ -34,6 +35,7 @@ def logout():
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
+        auth = request.form.get('auth')
         name = request.form.get('name')
         email = request.form.get('email')
         password1 = request.form.get('password1')
@@ -48,6 +50,8 @@ def register():
         user = User.query.filter_by(email=email).first()
         if user:
             flash('이메일이 이미 존재합니다.', category='error')
+        elif len(auth) < 2:
+            flash('직급을 선택하세요.', category='error')
         elif len(email) < 4:
             flash('이메일이 4글자 이상이어야 합니다.', category='error')
         elif len(name) < 2:
@@ -70,6 +74,7 @@ def register():
             flash('시력 상태를 선택해주세요', category='error')
         else:
             new_user = User(
+                auth=auth,
                 name=name,
                 email=email,
                 password=generate_password_hash(password1, method='sha256'),
@@ -89,11 +94,24 @@ def register():
     return render_template("register.html", user=current_user)
 
 @auth.route('/mypage')
+@login_required
 def mypage():
     return render_template("mypage.html")
 
 @auth.route('/board')
+@login_required
 def board():
     return render_template("board.html")
+
+@auth.route('/admin')
+@login_required
+def admin():
+    auth = current_user.auth
+    if auth == "관리자":
+        return render_template("admin.html")
+    else:
+        flash("죄송합니다. 관리자만 접근할 수 있습니다.")
+        return redirect(url_for('auth.login'))
+    
 
 
