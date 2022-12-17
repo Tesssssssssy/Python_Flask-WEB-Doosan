@@ -15,12 +15,14 @@ def create_app():
     from .views import views
     from .auth import auth
     from .mypage_views import mypage_views
+    from .board_views import board_views
     
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(mypage_views, url_prefix='/')
+    app.register_blueprint(board_views, url_prefix='/')
     
-    from .models import User
+    from .models import User, Note
     
     with app.app_context():
         db.create_all()

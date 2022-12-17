@@ -1,65 +1,69 @@
 {% extends "base.html" %} {% block content%}
 
-    <div id="select-box">
-    <h1>정보를 입력해주세요</h1>
-    <form>
-        <label for="음주 정도">음주 정도: </label>
-        <select name="음주 정도" id="음주 정도">
-            <option value="" disabled selected></option>
-            <option value="4">일주일에 4번 이상</option>
-            <option value="3">일주일에 2~3번</option>
-            <option value="2">한 달에 3~4번</option>
-            <option value="1">한 달에 2번 이하</option>
-            <option value="0">음주 안함</option>
+<form method="POST">
+</br>
+    <h2 align="center">오늘 나의 정보 입력</h2>
+</br>
+    <div class="form-group">
+      <label for="drink">음주 정도</label>
+        <select name="drink" id="drink" class="form-control">
+          <option value="" disabled selected></option>
+            <option value="주 4회 이상">주 4회 이상</option>
+            <option value="주 2~3회">주 2~3회</option>
+            <option value="월 2~4회">월 2~4회</option>
+            <option value="월 1회 이하">월 1회 이하</option>
+            <option value="전혀 안마심">전혀 안마심</option>
         </select>
-        </br></br>
-        <label for="수면 시간">수면 시간: </label>
-        <select name="수면 시간" id="수면 시간">
-            <option value="" disabled selected></option>
-            <option value="3">7시간 이상</option>
-            <option value="2">6~7시간</option>
-            <option value="1">5~6시간</option>
-            <option value="0">5시간 이하</option>
-        </select>
-        </br></br>
-        <label for="수면의 질">수면의 질: </label>
-        <select name="수면의 질" id="수면의 질">
-            <option value="" disabled selected></option>
-            <option value="3">높음</option>
-            <option value="2">보통</option>
-            <option value="1">낮음</option>
-            <option value="0">없음</option>
-        </select>
-        </br></br>
-        <label for="피로도">피로도: </label>
-        <select name="피로도" id="피로도">
-            <option value="" disabled selected></option>
-            <option value="3">높음</option>
-            <option value="2">보통</option>
-            <option value="1">낮음</option>
-            <option value="0">없음</option>
-        </select>
-        </br></br>
-        <label for="불안감">불안감: </label>
-        <select name="불안감" id="불안감">
-            <option value="" disabled selected></option>
-            <option value="3">높음</option>
-            <option value="2">보통</option>
-            <option value="1">낮음</option>
-            <option value="0">없음</option>
-        </select>
-        </br></br>
-        <label for="우울감">우울감: </label>
-        <select name="우울감" id="우울감">
-            <option value="" disabled selected></option>
-            <option value="3">높음</option>
-            <option value="2">보통</option>
-            <option value="1">낮음</option>
-            <option value="0">없음</option>
-        </select>
-        </br></br>
-        <input type="submit" value="정보 입력">
-    </form>
     </div>
+    <div class="form-group">
+        <label for="sleephour">수면 시간</label>
+        <select name="sleephour" id="sleephour" class="form-control">
+          <option value="" disabled selected></option>
+            <option value="7시간 이상">7시간 이상</option>
+            <option value="6시간 이상 7시간 미만">6시간 이상 7시간 미만</option>
+            <option value="5시간 이상 6시간 미만">5시간 이상 6시간 미만</option>
+            <option value="5시간 미만">5시간 미만</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="sleepqual">수면의 질</label>
+        <select name="sleepqual" id="sleepqual" class="form-control">
+          <option value="" disabled selected></option>
+            <option value="높음">높음</option>
+            <option value="보통">보통</option>
+            <option value="낮음">낮음</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="tired">피로도</label>
+        <select name="tired" id="tired" class="form-control">
+          <option value="" disabled selected></option>
+            <option value="심각한 피로">심각한 피로</option>
+            <option value="중등도의 피로">중등도의 피로</option>
+            <option value="경미한 피로">경미한 피로</option>
+            <option value="피로 거의 없음">피로 거의 없음</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="anxiety">불안감</label>
+        <select name="anxiety" id="anxiety" class="form-control">
+          <option value="" disabled selected></option>
+            <option value="높음">높음</option>
+            <option value="보통">보통</option>
+            <option value="낮음">낮음</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="gloom">우울감</label>
+        <select name="gloom" id="gloom" class="form-control">
+        <option value="" disabled selected></option>
+            <option value="높음">높음</option>
+            <option value="보통">보통</option>
+            <option value="낮음">낮음</option>
+        </select>
+    </div>
+  </br></br>
+      <button type="submit" class="btn btn-primary">제출</button>
+</form>
     
 {% endblock %}

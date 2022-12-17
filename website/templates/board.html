@@ -1,5 +1,72 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
 
-<h2> board page</h2>
+{% block title %}
+Title - Board
+{% endblock %}
 
+{% block content %}
+<!-- 메모 생성 영역 -->
+<form method="POST">
+</br>
+    <h2 align="center">게시판</h2>
+</br></br>
+    <div class="form-floating">
+        <label for="note-title">제목</label>
+        <input name="note-title" type="text" class="form-control" id="note-title" placeholder="doosan@example.com">
+    </div>
+</br>
+    <div class="form-floating">
+        <label for="note-content">내용</label>
+        <textarea name="note-content" class="form-control" placeholder="내용 작성" id="note-content"></textarea>
+    </div>
+</br></br>
+    <button type="submit" class="btn btn-primary">게시글 저장</button>
+</form>
+
+<!-- 메모 조회 영역 -->
+<div class="list-group">
+    {% for note in current_user.notes %}
+    <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-2">{{note.title}}</h5>
+          <small class="text-muted">{{note.datetime}}</small>
+        </div>
+        <p class="mb-1">{{note.content}}</p>
+
+        <!-- 메모 삭제 버튼 -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary" type="button">수정</button>
+            <button class="btn btn-primary" type="button" onclick="deleteNote({{note.id}})">삭제</button>
+        </div>
+    </a>  
+    {% endfor %}
+</div>
+
+<!-- 메모 수정 Modal -->
+<!-- Modal -->
+<div class="modal fade" id="updateNoteModal" tabindex="-1" aria-labelledby="updateNoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateNoteModalLabel">메모 수정</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- 메모 수정 란 -->
+                <div class="form-floating">
+                    <input name="note-title" type="text" class="form-control" id="update-title" placeholder="name@example.com">
+                    <label for="note-title">Title</label>
+                </div>
+                <div class="form-floating">
+                    <textarea name="note-content" class="form-control" placeholder="Leave a content here" id="update-content"></textarea>
+                    <label for="note-content">Content</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-primary" onclick="updateNote()">변경</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

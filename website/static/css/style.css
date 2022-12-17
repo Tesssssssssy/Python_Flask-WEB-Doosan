@@ -5,7 +5,6 @@
 }
 
 body{
-    word-break: keep-all;
     margin:0;
     font-family: 'Noto Sans KR', sans-serif;
 }
@@ -24,45 +23,35 @@ a{
 }
 
 .navbar__logo{
-    font-size: 24px;
+    padding-top: 0px;
     color:white;
-    padding-left: 0px;
 }
+
 
 .navbar__menu{
     display:flex;
     list-style: none;
-    justify-content: center;
+    align-items: center;
     padding-left : 0px;
-    width:100%;
-    color: white !important;
 }
 
-.navbar__icons {
-    display : flex;
-    justify-content:right;
-    width:100%;
-}
 
 .navbar__menu li{
-    padding:8px 20px; 
+    padding:8px 12px; 
 }
 
-.navbar__menu a:hover{
-    color:rgb(255, 0, 0);
+.navbar__menu :hover{
+    background:#d49466 ;
+    border-radius: 4px;
 }
 
-
-
-.navbar__icons img {
-    padding : 8px 12px ;
-}
 
 .navbar__toggleBtn{
     display:none;
     position: absolute;
     right:32px;
     font-size: 24px;
+    color: #d49466;
 
 }
 /* 반응형 웹: 미디어 쿼리 */

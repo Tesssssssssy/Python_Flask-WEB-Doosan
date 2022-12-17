@@ -24,11 +24,9 @@
 
 <body>
     <nav class="navbar">
-        <a class="navbar__logo">
-            <!-- 로고 삽입하기 -->
-            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="두산 애너빌리티"> 
-        </a>
-
+      <div class="navbar__logo">
+        <img src="{{ url_for('static', filename='img/logo-kr-w.png') }}" alt="두산애너빌리티">
+      </div>
           <ul class="navbar__menu">
             {% if current_user.is_authenticated %}
               {% if current_user.auth == "관리자" %}
@@ -53,10 +51,7 @@
             {% endif%}
           </ul>
         
-        <div class="navbar__icons"> 
-            <img src="{{ url_for('static', filename='img/logo-kr-w.png') }}" alt="두산애너빌리티">
 
-        </div>
 
         <a href="/#" class="navbar__toggleBtn">
             <i class="fa-sharp fa-solid fa-bars"></i>

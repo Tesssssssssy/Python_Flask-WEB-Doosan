@@ -3,6 +3,7 @@ from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
+import pandas as pd
 
 auth = Blueprint('auth', __name__)
 
@@ -98,12 +99,12 @@ def register():
 def mypage():
     return render_template("mypage.html")
 
-@auth.route('/board')
+@auth.route('/board', methods=['GET', 'POST'])
 @login_required
 def board():
     return render_template("board.html")
 
-@auth.route('/admin')
+@auth.route('/admin', methods=['GET', 'POST'])
 @login_required
 def admin():
     auth = current_user.auth
@@ -112,6 +113,15 @@ def admin():
     else:
         flash("죄송합니다. 관리자만 접근할 수 있습니다.")
         return redirect(url_for('auth.login'))
+    
+@auth.route('/admin_data', methods=['GET', 'POST'])
+@login_required
+def admin_data():
+    if request.method == 'POST':
+        file = request.form['upload-file']
+        data = pd.read_excel(file)
+        return render_template("admin_data.html", data=data.to_html())
+        
     
 
 
