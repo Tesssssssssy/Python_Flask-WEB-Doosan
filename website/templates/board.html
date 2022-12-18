@@ -1,72 +1,59 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block title %}
-Title - Board
-{% endblock %}
-
-{% block content %}
-<!-- 메모 생성 영역 -->
-<form method="POST">
 </br>
-    <h2 align="center">게시판</h2>
-</br></br>
-    <div class="form-floating">
-        <label for="note-title">제목</label>
-        <input name="note-title" type="text" class="form-control" id="note-title" placeholder="doosan@example.com">
-    </div>
+<h3 class="text-center"> 게시판 </h3>
+    <!--div 2개로 공간(container) 만들어주기-->
 </br>
-    <div class="form-floating">
-        <label for="note-content">내용</label>
-        <textarea name="note-content" class="form-control" placeholder="내용 작성" id="note-content"></textarea>
+    <div class = "container">
+        <div class = "row justify-content-center">
+                <!--부트스트랩 blank 코드-->
+                <form class= "col-md-6" action = "/create"> 
+                <!--col-md-6은 md는 반응형 기능, col-6은 컬럼을 6개 먹겠다라는 의미-->
+              <div class="form-group">
+                <label for="exampleInputEmail1">제목</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="제목을 입력하세요" name="title">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">내용</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="내용을 입력하세요" name = "content">
+              </div>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
-</br></br>
-    <button type="submit" class="btn btn-primary">게시글 저장</button>
-</form>
-
-<!-- 메모 조회 영역 -->
-<div class="list-group">
-    {% for note in current_user.notes %}
-    <a href="#" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-2">{{note.title}}</h5>
-          <small class="text-muted">{{note.datetime}}</small>
+    
+    {% for p in posts %}
+        <div class="container">
+            <div class="row justify-content-center">
+                <!--부트스트랩 클래스는 한번 띄고 계속 써주면됨 -->
+                <div class="card w-75">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ p.title }}</h5>
+                    <p class="card-text">{{ p.content }}</p>
+                    <a href="/edit/{{ p.id }}" class="btn btn-primary">수정</a>
+                    <a href="/delete/{{ p.id }}" class="btn btn-primary">삭제</a></a>
+                  </div>
+                </div>
+            </div>
         </div>
-        <p class="mb-1">{{note.content}}</p>
-
-        <!-- 메모 삭제 버튼 -->
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary" type="button">수정</button>
-            <button class="btn btn-primary" type="button" onclick="deleteNote({{note.id}})">삭제</button>
-        </div>
-    </a>  
+       
+        <p>---------------댓글-----------------</p>
+        <form action="/create_comment">
+            <input type = "text" name = "comment_content">
+            <input type = "hidden" name = "post_id" value = "{{ p.id }}">  
+            <!--# hidden은 보안상 위험, 페이지 소스보기로 하면 사용자가 다 볼 수 있음-->
+            <input type = "submit">
+        </form>
+        {% for c in comments %}
+            {% if c.post_id == p.id %}
+             <p> {{ c.content }} </p>
+            {% endif %}
+        {% endfor %}
+        <hr>
     {% endfor %}
-</div>
 
-<!-- 메모 수정 Modal -->
-<!-- Modal -->
-<div class="modal fade" id="updateNoteModal" tabindex="-1" aria-labelledby="updateNoteModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="updateNoteModalLabel">메모 수정</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- 메모 수정 란 -->
-                <div class="form-floating">
-                    <input name="note-title" type="text" class="form-control" id="update-title" placeholder="name@example.com">
-                    <label for="note-title">Title</label>
-                </div>
-                <div class="form-floating">
-                    <textarea name="note-content" class="form-control" placeholder="Leave a content here" id="update-content"></textarea>
-                    <label for="note-content">Content</label>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                <button type="button" class="btn btn-primary" onclick="updateNote()">변경</button>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock %}

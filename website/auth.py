@@ -99,8 +99,7 @@ def register():
 def mypage():
     return render_template("mypage.html")
 
-@auth.route('/board', methods=['GET', 'POST'])
-@login_required
+@auth.route('/board')
 def board():
     return render_template("board.html")
 

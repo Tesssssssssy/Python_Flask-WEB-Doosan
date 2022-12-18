@@ -1,7 +1,6 @@
 from . import db 
 from flask_login import UserMixin
 from sqlalchemy.sql import func
-from datetime import datetime
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -15,13 +14,17 @@ class User(db.Model, UserMixin):
     graduation = db.Column(db.String(100))
     hearing = db.Column(db.String(100))
     sight = db.Column(db.String(100))
-    notes = db.relationship('Note')
     
-# define Note Model
-class Note(db.Model):
-    id = db.Column(db.Integer, primary_key = True)
-    title = db.Column(db.String(50))
-    content = db.Column(db.String(2000))
-    datetime = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+class Post(db.Model):                                        
+    __tablename__ = "posts"
+    id = db.Column(db.Integer, primary_key=True)             
+    title = db.Column(db.String, nullable=False)             
+    content = db.Column(db.String, nullable=False)    
+    
+class Comment(db.Model):
+    __tablename__ = "comments" #테이블 이름 설정
+    id = db.Column(db.Integer, primary_key=True)
+    content =  db.Column(db.String, nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), nullable=False)
+
     
