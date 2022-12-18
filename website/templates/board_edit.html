@@ -1,10 +1,19 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base2.html" %} 
+{% block body_block %}
 
-<h1> 게시물 수정 </h1>
-    <form action="/update/{{ post.id }}">
-        제목 : <input type ="text" name="title" value="{{ post.title }}"><br>
-        내용 : <input type ="text" name="content" value="{{ post.content }}"><br>
-        <input type="submit">
+    <form action="/posts/{{post.id}}/update" method="POST">
+    </br>
+    <h3> 게시물 수정 </h3>
+    </br>
+        <div class="form-group">
+        <label for="title">제목</label>
+        <input value="{{post.title}}" name="title" type="text" class="form-control" id="title" placeholder="제목을 입력해주세요!">
+        </div>
+        <div class="form-group">
+        <label for="content">내용</label>
+        <textarea name="content" id="content" class="form-control">{{post.content}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
 {% endblock %}

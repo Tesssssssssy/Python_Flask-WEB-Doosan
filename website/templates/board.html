@@ -1,59 +1,25 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base2.html" %} {% block content %}
 
 </br>
-<h3 class="text-center"> 게시판 </h3>
-    <!--div 2개로 공간(container) 만들어주기-->
+<h3>게시판</h3>
 </br>
-    <div class = "container">
-        <div class = "row justify-content-center">
-                <!--부트스트랩 blank 코드-->
-                <form class= "col-md-6" action = "/create"> 
-                <!--col-md-6은 md는 반응형 기능, col-6은 컬럼을 6개 먹겠다라는 의미-->
-              <div class="form-group">
-                <label for="exampleInputEmail1">제목</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="제목을 입력하세요" name="title">
+    <div class='row'>
+      {% for post in posts %}
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <!--<img class="card-img-top" src=".../100px180/" alt="Card image cap">-->
+              <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <p class="card-text">{{post.content}}</p>
+                <a href="/posts/{{post.id}}" class="btn btn-primary">Go somewhere</a>
+                <form action="">
+                    <input type="text" name="content"/>
+                    <input type="submit">
+                </form>
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">내용</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="내용을 입력하세요" name = "content">
-              </div>
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </div>
-    
-    {% for p in posts %}
-        <div class="container">
-            <div class="row justify-content-center">
-                <!--부트스트랩 클래스는 한번 띄고 계속 써주면됨 -->
-                <div class="card w-75">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ p.title }}</h5>
-                    <p class="card-text">{{ p.content }}</p>
-                    <a href="/edit/{{ p.id }}" class="btn btn-primary">수정</a>
-                    <a href="/delete/{{ p.id }}" class="btn btn-primary">삭제</a></a>
-                  </div>
-                </div>
             </div>
         </div>
-       
-        <p>---------------댓글-----------------</p>
-        <form action="/create_comment">
-            <input type = "text" name = "comment_content">
-            <input type = "hidden" name = "post_id" value = "{{ p.id }}">  
-            <!--# hidden은 보안상 위험, 페이지 소스보기로 하면 사용자가 다 볼 수 있음-->
-            <input type = "submit">
-        </form>
-        {% for c in comments %}
-            {% if c.post_id == p.id %}
-             <p> {{ c.content }} </p>
-            {% endif %}
-        {% endfor %}
-        <hr>
-    {% endfor %}
+      {% endfor %}
+    </div>
 
 {% endblock %}
