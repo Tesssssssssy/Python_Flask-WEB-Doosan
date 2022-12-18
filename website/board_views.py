@@ -2,18 +2,23 @@ from flask import Flask, Blueprint, render_template, request, flash, redirect, u
 from .models import Post, Comment
 from . import db
 from flask_sqlalchemy import SQLAlchemy
+import sqlite3 as sql
 import os
 from werkzeug.utils import secure_filename
 
 board_views = Blueprint('board_views', __name__)
 
-@board_views.route('/board')
-def index():
-    # posts = Post.query.all()
-    # SELECT * FROM posts;
-    posts = Post.query.all()
-    # SELECT * FROM posts ORDER BY id DESE;
-    return render_template('board.html',posts=posts)
+@board_views.route('/board', methods=['GET', 'POST'])
+def board():
+    con = sql.connect("database.db")
+    con.row_factory = sql.Row
+    
+    cur = con.cursor()
+    cur.execute("select * from posts")
+    
+    rows = cur.fetchall()
+    return render_template("board.html", rows=rows)
+    
 
 @board_views.route('/posts/new')
 def new():
@@ -21,16 +26,18 @@ def new():
 
 @board_views.route('/posts/create', methods=["POST"])
 def create():
-    # title = request.args.get('title')
-    title = request.form.get('title')
-    # content = request.args.get('content')
-    content = request.form.get('content')
-    post = Post(title=title, content=content)
-    db.session.add(post)
-    db.session.commit()
+    if request.method == 'POST':
+        # title = request.args.get('title')
+        title = request.form.get('title')
+        # content = request.args.get('content')
+        content = request.form.get('content')
+        post = Post(title=title, content=content)
+        db.session.add(post)
+        db.session.commit()
     
-    # return render_template('create.html')
-    return redirect('/posts/{}'.format(post.id))
+        # return render_template('create.html')
+        return redirect('/posts/{}'.format(post.id))
+    return render_template('board_create.html')
     
 @board_views.route('/posts/<int:id>')
 def read(id):
@@ -38,13 +45,15 @@ def read(id):
     # SELECT * FROM posts WHERE id=1;
     return render_template('board_read.html',post=post)
     
-@board_views.route('/posts/<int:id>/delete') 
+@board_views.route('/posts/<int:id>/delete', methods=['POST']) 
 def delete(id):
-    post = Post.query.get(id)
-    db.session.delete(post)
-    db.session.commit()
-    
-    return redirect('/board')
+    if request.method == 'POST':
+        post = Post.query.get(id)
+        db.session.delete(post)
+        db.session.commit()
+        
+        return redirect('/board')
+    return render_template('board_delete.html', post=post)
     
 @board_views.route('/posts/<int:id>/edit')
 def edit(id):

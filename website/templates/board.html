@@ -1,25 +1,26 @@
-{% extends "base2.html" %} {% block content %}
+{% extends "base2.html" %} 
 
+{% block body_block %}
 </br>
 <h3>게시판</h3>
 </br>
-    <div class='row'>
-      {% for post in posts %}
-        <div class="col-sm">
-            <div class="card" style="width: 18rem;">
-              <!--<img class="card-img-top" src=".../100px180/" alt="Card image cap">-->
-              <div class="card-body">
-                <h5 class="card-title">{{post.title}}</h5>
-                <p class="card-text">{{post.content}}</p>
-                <a href="/posts/{{post.id}}" class="btn btn-primary">Go somewhere</a>
-                <form action="">
-                    <input type="text" name="content"/>
-                    <input type="submit">
-                </form>
-              </div>
-            </div>
-        </div>
+  <table border="1">
+    <thead>
+      <tr>
+          <th>id</th>
+          <th>title</th>
+          <th>content</th>
+          <th>created_at</th>
+      </tr>
+    </thead>
+      {% for row in rows %}
+          <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+          </tr>
       {% endfor %}
-    </div>
+  </table>
 
-{% endblock %}
+{% endblock %}  
