@@ -5,7 +5,7 @@ Web programming team project - Doosan enerability
 - 파이썬 flask 
 - html/css
 - javascript
-- mysql
+- sqlite
 
 
 ## 웹 기능 

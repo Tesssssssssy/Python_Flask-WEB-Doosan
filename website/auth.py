@@ -31,6 +31,7 @@ def login():
 @login_required
 def logout():
     logout_user()
+    flash('로그아웃되었습니다.', category='success')
     return redirect(url_for('auth.login'))
 
 @auth.route('/register', methods=['GET', 'POST'])
@@ -89,7 +90,7 @@ def register():
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
-            flash('회원가입이 완료되었습니다!', category='success')
+            flash('축하합니다! 회원가입이 완료되었습니다.', category='success')
             return redirect(url_for('views.home'))
         
     return render_template("register.html", user=current_user)
@@ -108,9 +109,10 @@ def board():
 def admin():
     auth = current_user.auth
     if auth == "관리자":
+        flash ("관리자로 접근 성공!", category='success')
         return render_template("admin.html")
     else:
-        flash("죄송합니다. 관리자만 접근할 수 있습니다.")
+        flash("죄송합니다. 관리자만 접근할 수 있습니다.", category='error')
         return redirect(url_for('auth.login'))
     
     

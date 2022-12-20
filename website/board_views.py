@@ -68,6 +68,7 @@ def delete(id):
     post = Post.query.get(id)
     db.session.delete(post)
     db.session.commit()
+    flash ("게시글이 성공적으로 삭제되었습니다!", category='success')
     
     return redirect('/board')
 
@@ -85,7 +86,7 @@ def update(id):
     # post.title = request.args.get('title')
     # post.content = request.args.get('content')
     db.session.commit()
-    flash ("글이 정상적으로 수정되었습니다.")
+    flash ("글이 정상적으로 수정되었습니다.", category='success')
     
     return redirect('/posts/{}'.format(id))
     
@@ -98,8 +99,9 @@ def comments(post_id):
     post.comments.append(comment)
     db.session.add(comment)
     db.session.commit()
+    flash ("댓글이 성공적으로 작성되었습니다.", category='success')
     
-    return redirect('/board')
+    return redirect('/posts/{}'.format(post_id))
     
     
 @board_views.route('/comment/<int:id>/delete')
@@ -108,4 +110,4 @@ def comment_delete(id):
     db.session.delete(comment)
     db.session.commit()
     
-    return redirect('/board')
+    return redirect('/posts/{}'.format(id))
