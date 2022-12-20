@@ -2,11 +2,28 @@
 <!-- csv파일 관리 -->
 </br>
 <h2> 관리자 페이지 </h2>
-</br>
+</br></br>
 
-<form class="" action="data" method="post">
-    <input type="file" name="upload-file" value="">
-    <input type="submit" name="" value="확인">
-</form>
+<h5># 회원가입한 유저 명단</h5>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+          <th>auth</th>
+          <th>성명</th>
+          <th>email</th>
+          <th>나이</th>
+          <th>성별</th>
+      </tr>
+    </thead>
+      {% for user in users %}
+          <tr>
+            <td>{{ user.auth }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.gender }}</td>
+          </tr>
+      {% endfor %}
+  </table>
 
 {% endblock %}

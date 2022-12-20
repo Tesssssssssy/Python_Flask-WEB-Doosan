@@ -1,6 +1,5 @@
 from . import db 
 from flask_login import UserMixin
-from sqlalchemy.sql import func
 import datetime
 
 class User(db.Model, UserMixin):
@@ -15,6 +14,7 @@ class User(db.Model, UserMixin):
     graduation = db.Column(db.String(100))
     hearing = db.Column(db.String(100))
     sight = db.Column(db.String(100))
+
     
 class Post(db.Model):                                        
     __tablename__ = "posts"
@@ -29,9 +29,6 @@ class Post(db.Model):
         self.title = title
         self.content = content
         self.created_at = datetime.datetime.now() 
-        # cur_datetime=datetime.datetime.now()
-        # dateformat="%Y-%m-%d %H:%M"
-        # self.created_at = cur_datetime.strftime(dateformat)
         
     
 class Comment(db.Model):
@@ -47,5 +44,4 @@ class Comment(db.Model):
         self.created_at = datetime.datetime.now()
         self.creator = creator
         
-     #csv모델 연결    
     

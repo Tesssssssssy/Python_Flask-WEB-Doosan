@@ -1,8 +1,7 @@
 from flask import Flask, Blueprint, render_template, request, flash, redirect, url_for
-from .models import Post, Comment
+from .models import User, Post, Comment
 from . import db
 from flask_sqlalchemy import SQLAlchemy
-import sqlite3 as sql
 import os
 from werkzeug.utils import secure_filename
 
@@ -11,14 +10,8 @@ board_views = Blueprint('board_views', __name__)
 @board_views.route('/board', methods=['GET', 'POST'])
 def board():
     #db연결 
-    con = sql.connect("database.db")
-    con.row_factory = sql.Row
-    
-    cur = con.cursor()
-    cur.execute("select * from posts")
-    
-    rows = cur.fetchall()
-    return render_template("board.html", rows=rows)
+    posts = Post.query.all()
+    return render_template("board.html", posts=posts)
 
 
     

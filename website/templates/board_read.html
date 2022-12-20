@@ -4,7 +4,7 @@
     <div class="board_view_wrap">
         <div class="board_view">
             <div class="title">
-                {{post.title}}
+                제목: {{post.title}}
             </div>
             <div class="info">
                 <dl>
@@ -30,18 +30,20 @@
     <br>
     <br>
     <form action="/posts/{{post.id}}/comments" method='POST'>
-        작성자 : <input type="text" name="creator" />
-        댓글 : <input type="text" name="content"/>
+    </br><댓글 작성></br>
+        이름 : <input type="text" name="creator" /></br>
+        내용 :   <input type="text" name="content"/>
         <input type='submit'/>
     </form>
     {% for comment in post.comments %}
     <hr>
-        <p>ㄴ> | {{comment.content}} </p>
-        <p> 작성자 |   {{comment.creator}}</p>
-        <p>작성일자 | {{comment.created_at}}</p>
+        <p>내용: {{comment.content}} </p>
+        <p>이름: {{comment.creator}}</p>
+        <p>작성일: {{comment.created_at}}</p>
         <a href="/comment/{{comment.id}}/delete">댓글삭제</a>
         <br>
         
     {% endfor %}
+</br></br></br></br>
 
 {% endblock %} 

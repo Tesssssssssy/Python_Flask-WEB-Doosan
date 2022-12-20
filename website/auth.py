@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
+from .models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
+from sqlalchemy import desc
 from flask_login import login_user, login_required, logout_user, current_user
 import pandas as pd
 
@@ -100,9 +101,10 @@ def register():
 def mypage():
     return render_template("mypage.html")
 
-@auth.route('/board')
+@auth.route('/board', methods=['GET', 'POST'])
 def board():
-    return render_template("board.html")
+    posts = Post.query.order_by(desc(Post.created_at)).all()
+    return render_template("board.html", posts=posts)
 
 @auth.route('/admin', methods=['GET', 'POST'])
 @login_required
@@ -110,12 +112,12 @@ def admin():
     auth = current_user.auth
     if auth == "관리자":
         flash ("관리자로 접근 성공!", category='success')
-        return render_template("admin.html")
+        users = User.query.all() 
+        
+        return render_template("admin.html", users=users)
     else:
         flash("죄송합니다. 관리자만 접근할 수 있습니다.", category='error')
         return redirect(url_for('auth.login'))
-    
-    
     
     
     #업로드 파일 보기 

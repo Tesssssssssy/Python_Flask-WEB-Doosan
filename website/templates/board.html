@@ -1,53 +1,21 @@
 {% extends "base2.html" %} 
 
 {% block body_block %}
-</br>
-<h3>게시판</h3>
-</br>
-
-<!-- 게시글 인덱싱 (번호 , 제목, 글쓴이, 작성일, 조회) -->
-<div class="board_list_wrap">
-  <div class="board_list">
-      <div class="top">
-          <div class="num">번호</div>
-          <div class="title">글 보기</div>
+</br></br>
+<div class='row'>
+  {% for post in posts %}
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.content}}</p>
+          <p class="card-text">{{post.created_at}}</p>
+          <a href="/posts/{{post.id}}" class="btn btn-primary">게시물 이동</a>
+        </div>
       </div>
-
-
-      <!-- 리스트  -->
-
-
-      {% for i in range(21,0,-1)%}
-      <div>
-          <div class="num">{{i}}</div>
-          <div><a href="http://127.0.0.1:5000/posts/{{i}}">{{i}}번 글입니다. </a></div>
-          <div class="date"></div>
-      </div>
-
-      {% endfor %}
-
-
-<!--
->>>>>>> 4d25ef9f991839a955d01fdaa7ff9cb6fa1c0ca7
-  <table border="1">
-    <thead>
-      <tr>
-          <th>id</th>
-          <th>title</th>
-          <th>content</th>
-          <th>created_at</th>
-      </tr>
-    </thead>
-      {% for row in rows %}
-          <tr>
-            <td>{{ row[0] }}</td>
-            <td>{{ row[1] }}</td>
-            <td>{{ row[2] }}</td>
-            <td>{{ row[3] }}</td>
-          </tr>
-      {% endfor %}
-  </table>
-
--->
+    </div>
+  {% endfor %}
+  </div>
+  </br></br></br></br></br></br></br></br></br></br>
 
 {% endblock %}  

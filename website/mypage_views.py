@@ -12,6 +12,7 @@ mypage_views = Blueprint('mypage_views', __name__)
 @mypage_views.route('/mypage', methods=['GET','POST'])
 @login_required
 def mypage():
+    flash("내 정보를 수정할 수 있습니다!", category='success')
     return render_template('mypage.html')
 
 
