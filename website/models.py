@@ -29,6 +29,10 @@ class Post(db.Model):
         self.title = title
         self.content = content
         self.created_at = datetime.datetime.now() 
+        # cur_datetime=datetime.datetime.now()
+        # dateformat="%Y-%m-%d %H:%M"
+        # self.created_at = cur_datetime.strftime(dateformat)
+        
     
 class Comment(db.Model):
     __tablename__ ='comments'
@@ -42,5 +46,6 @@ class Comment(db.Model):
         self.content = content
         self.created_at = datetime.datetime.now()
         self.creator = creator
-
+        
+     #csv모델 연결    
     

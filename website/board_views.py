@@ -10,6 +10,7 @@ board_views = Blueprint('board_views', __name__)
 
 @board_views.route('/board', methods=['GET', 'POST'])
 def board():
+    #db연결 
     con = sql.connect("database.db")
     con.row_factory = sql.Row
     
@@ -18,12 +19,17 @@ def board():
     
     rows = cur.fetchall()
     return render_template("board.html", rows=rows)
+
+
     
 
 @board_views.route('/posts/new')
 def new():
     return render_template('board_new.html')
 
+
+
+#post 
 @board_views.route('/posts/create', methods=["POST"])
 def create():
     if request.method == 'POST':
@@ -36,24 +42,35 @@ def create():
         db.session.commit()
     
         # return render_template('create.html')
+        flash("글이 정상적으로 등록되었습니다.")
         return redirect('/posts/{}'.format(post.id))
     return render_template('board_create.html')
+
     
 @board_views.route('/posts/<int:id>')
 def read(id):
     post = Post.query.get(id)
     # SELECT * FROM posts WHERE id=1;
     return render_template('board_read.html',post=post)
-    
-@board_views.route('/posts/<int:id>/delete', methods=['POST']) 
-def delete(id):
-    if request.method == 'POST':
-        post = Post.query.get(id)
-        db.session.delete(post)
-        db.session.commit()
+ 
+# @board_views.route('/posts/<int:id>/delete', methods=['POST']) 
+# def delete(id):
+#     if request.method == 'POST':
+#         post = Post.query.get(id)
+#         db.session.delete(post)
+#         db.session.commit()
         
-        return redirect('/board')
-    return render_template('board_delete.html', post=post)
+#         return redirect('/board')
+#     return render_template('board_delete.html', post=post)
+
+@board_views.route('/posts/<int:id>/delete')
+def delete(id):
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+    
+    return redirect('/board')
+
     
 @board_views.route('/posts/<int:id>/edit')
 def edit(id):
@@ -68,6 +85,7 @@ def update(id):
     # post.title = request.args.get('title')
     # post.content = request.args.get('content')
     db.session.commit()
+    flash ("글이 정상적으로 수정되었습니다.")
     
     return redirect('/posts/{}'.format(id))
     
@@ -82,6 +100,7 @@ def comments(post_id):
     db.session.commit()
     
     return redirect('/board')
+    
     
 @board_views.route('/comment/<int:id>/delete')
 def comment_delete(id):

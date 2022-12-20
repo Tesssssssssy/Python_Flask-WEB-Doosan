@@ -1,21 +1,47 @@
 {% extends 'base2.html' %} 
 {% block body_block %}
 
-    <h3>게시글 번호: {{post.id}}</h3>
-    <h3>제목: {{post.title}}</h3>
-    <h3>내용: {{post.content}}</h3>
-    <h3>작성시각: {{post.created_at}}</h3>
-    <a href="/posts/{{post.id}}/delete">삭제</a>
-    <a href="/posts/{{post.id}}/edit">수정</a>
+    <div class="board_view_wrap">
+        <div class="board_view">
+            <div class="title">
+                {{post.title}}
+            </div>
+            <div class="info">
+                <dl>
+                    <dt>번호</dt>
+                    <dd>{{post.id}}</dd>
+                </dl>
+                <dl>
+                    <dt>작성일</dt>
+                    <dd>{{post.created_at}}</dd>
+                </dl>
+            </div>
+            <div class="cont">
+                {{post.content}}
+            </div>
+        </div>
+
+        <div class="bt_wrap">
+            <a href="/posts/{{post.id}}/delete">삭제</a>
+            <a href="/posts/{{post.id}}/edit">수정</a>
+
+        </div>
+    </div>
+    <br>
+    <br>
     <form action="/posts/{{post.id}}/comments" method='POST'>
         작성자 : <input type="text" name="creator" />
         댓글 : <input type="text" name="content"/>
         <input type='submit'/>
     </form>
     {% for comment in post.comments %}
-        <p>{{comment.creator}} : {{comment.content}}</p>
-        <p>{{comment.created_at}}</p>
+    <hr>
+        <p>ㄴ> | {{comment.content}} </p>
+        <p> 작성자 |   {{comment.creator}}</p>
+        <p>작성일자 | {{comment.created_at}}</p>
         <a href="/comment/{{comment.id}}/delete">댓글삭제</a>
+        <br>
+        
     {% endfor %}
 
 {% endblock %} 
