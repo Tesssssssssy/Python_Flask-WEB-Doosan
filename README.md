@@ -1,8 +1,8 @@
-# WEB-Doosan
-Web programming team project - Doosan enerability
+# WEB SW Studio and Talent Donation
+Web programming team project for 'Doosan enerability' which is developed by 임태우, 이은주, 박규현
 
 ## 프레임워크 및 라이브러리
-- 파이썬 Flask (Flask, SQLAlchemy, flask_login, werkzeug.security, wtforms 등)
+- Python Flask (Flask, SQLAlchemy, flask_login, werkzeug.security, wtforms etc)
 - html/css
 - javascript
 - sqlite(db)
