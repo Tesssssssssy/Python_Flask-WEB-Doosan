@@ -2,7 +2,7 @@
 Web programming team project - Doosan enerability
 
 ## 프레임워크 및 라이브러리
-- 파이썬 flask 
+- 파이썬 Flask (Flask, SQLAlchemy, flask_login, werkzeug.security, wtforms 등)
 - html/css
 - javascript
 - sqlite(db)
