@@ -28,7 +28,11 @@ class Post(db.Model):
     def __init__(self,title,content):
         self.title = title
         self.content = content
-        self.created_at = datetime.datetime.now() 
+        #self.created_at = datetime.datetime.now() 
+        cur_datetime=datetime.datetime.now()
+        dateformat="%Y-%m-%d %H:%M"
+        self.created_at = cur_datetime.strftime(dateformat)
+        
     
 class Comment(db.Model):
     __tablename__ ='comments'
