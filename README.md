@@ -41,10 +41,12 @@ css 미디어 쿼리를 통해 사용하는 기기의 사이즈에 맞춰 볼 �
 #### 1. 게시글 목록
 <img width="1552" alt="board" src="https://user-images.githubusercontent.com/112614954/208712004-377f702b-2c16-4eb0-81a6-aff13f800b09.png">
 게시판에 등록된 글 목록입니다. 
+
 #### 2.게시글 등록
 <img width="1508" alt="board_create" src="https://user-images.githubusercontent.com/112614954/208712131-96a281bf-9966-4bd1-ac73-2dd90dd56896.png">
 <img width="612" alt="board_create(반응형" src="https://user-images.githubusercontent.com/112614954/208712180-5e15a1a7-6d0e-4d03-8eaf-42f1059da8bb.png">
 글을 쓰는 페이지입니다. 
+
 #### 3. 게시글 보기 
 <img width="1552" alt="board_read" src="https://user-images.githubusercontent.com/112614954/208712335-e1ae0830-bd8f-47f1-876d-bd70e4f90fcd.png"> 
 
