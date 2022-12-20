@@ -1,10 +1,10 @@
 {% extends 'base2.html' %} 
 {% block body_block %}
 
-    <h3>{{post.id}}</h3>
-    <h3>{{post.title}}</h3>
-    <h3>{{post.content}}</h3>
-    <h3>{{post.created_at}}</h3>
+    <h3>게시글 번호: {{post.id}}</h3>
+    <h3>제목: {{post.title}}</h3>
+    <h3>내용: {{post.content}}</h3>
+    <h3>작성시각: {{post.created_at}}</h3>
     <a href="/posts/{{post.id}}/delete">삭제</a>
     <a href="/posts/{{post.id}}/edit">수정</a>
     <form action="/posts/{{post.id}}/comments" method='POST'>
