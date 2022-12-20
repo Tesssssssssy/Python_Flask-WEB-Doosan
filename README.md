@@ -1,11 +1,17 @@
 # WEB-Doosan
 Web programming team project - Doosan enerability
 
-## 프레임워크
+## 프레임워크 및 라이브러리
 - 파이썬 flask 
 - html/css
 - javascript
-- sqlite
+- sqlite(db)
+
+## 설치 방법
+- git clone https://github.com/Tesssssssssy/WEB-Doosan.git
+- python-flask 가상환경 설치 (pip install virtualenv)
+- flask_login, sqlalchemy 등 필요한 라이브러리 설치
+- anaconda를 이용한 flask run
 
 
 ## 웹 기능 
