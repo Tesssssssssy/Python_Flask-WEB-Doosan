@@ -42,5 +42,6 @@ class Comment(db.Model):
         self.content = content
         self.created_at = datetime.datetime.now()
         self.creator = creator
-
+        
+     #csv모델 연결    
     

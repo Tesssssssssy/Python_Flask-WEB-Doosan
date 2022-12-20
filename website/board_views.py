@@ -10,6 +10,7 @@ board_views = Blueprint('board_views', __name__)
 
 @board_views.route('/board', methods=['GET', 'POST'])
 def board():
+    #db연결 
     con = sql.connect("database.db")
     con.row_factory = sql.Row
     
@@ -44,16 +45,24 @@ def read(id):
     post = Post.query.get(id)
     # SELECT * FROM posts WHERE id=1;
     return render_template('board_read.html',post=post)
-    
-@board_views.route('/posts/<int:id>/delete', methods=['POST']) 
-def delete(id):
-    if request.method == 'POST':
-        post = Post.query.get(id)
-        db.session.delete(post)
-        db.session.commit()
+ 
+# @board_views.route('/posts/<int:id>/delete', methods=['POST']) 
+# def delete(id):
+#     if request.method == 'POST':
+#         post = Post.query.get(id)
+#         db.session.delete(post)
+#         db.session.commit()
         
-        return redirect('/board')
-    return render_template('board_delete.html', post=post)
+#         return redirect('/board')
+#     return render_template('board_delete.html', post=post)
+
+@board_views.route('/posts/<int:id>/delete')
+def delete(id):
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+    
+    return redirect('/board')
     
 @board_views.route('/posts/<int:id>/edit')
 def edit(id):

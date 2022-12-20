@@ -3,7 +3,7 @@ from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
-# import pandas as pd
+import pandas as pd
 
 auth = Blueprint('auth', __name__)
 
@@ -113,6 +113,10 @@ def admin():
         flash("죄송합니다. 관리자만 접근할 수 있습니다.")
         return redirect(url_for('auth.login'))
     
+    
+    
+    
+    #업로드 파일 보기 
 @auth.route('/admin_data', methods=['GET', 'POST'])
 @login_required
 def admin_data():

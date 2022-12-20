@@ -1,6 +1,7 @@
 {% extends "base2.html" %} 
 {% block body_block %}
 
+
     <form action="/posts/{{post.id}}/update" method="POST">
     </br>
     <h3> 게시물 수정 </h3>
@@ -13,7 +14,11 @@
         <label for="content">내용</label>
         <textarea name="content" id="content" class="form-control">{{post.content}}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">등록</button>
     </form>
+
+
+       
+
 
 {% endblock %}
