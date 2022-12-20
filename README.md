@@ -48,9 +48,10 @@ css 미디어 쿼리를 통해 사용하는 기기의 사이즈에 맞춰 볼 �
 글을 쓰는 페이지입니다. 
 
 #### 3. 게시글 보기 
-<img width="1552" alt="board_read" src="https://user-images.githubusercontent.com/112614954/208712335-e1ae0830-bd8f-47f1-876d-bd70e4f90fcd.png"> 
+<img width="1552" alt="board_read" src="https://user-images.githubusercontent.com/112614954/208712335-e1ae0830-bd8f-47f1-876d-bd70e4f90fcd.png">
+<img width="612" alt="board_read(댓글기능" src="https://user-images.githubusercontent.com/112614954/208712426-c6464e42-1d9a-4177-bea2-17dec2df28f9.png">
+<img width="612" alt="board_read(반응형" src="https://user-images.githubusercontent.com/112614954/208712432-1eceff03-16ab-4b14-a83a-de8ef1b1d907.png">
 
-<img width="612" alt="board_read(댓글기능" src="https://user-images.githubusercontent.com/112614954/208712426-c6464e42-1d9a-4177-bea2-17dec2df28f9.png"><img width="612" alt="board_read(반응형" src="https://user-images.githubusercontent.com/112614954/208712432-1eceff03-16ab-4b14-a83a-de8ef1b1d907.png">
 댓글기능과 css미디어쿼리를 통해 만든 웹 반응형 게시글입니다. 게시글에서 수정과 삭제를 할 수 있습니다. 
 
 #### 4. 게시글 삭제 및 수정 기능
