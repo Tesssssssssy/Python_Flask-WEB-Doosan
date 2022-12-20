@@ -9,6 +9,11 @@ body{
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+.navbar a{
+    text-decoration: none;
+    color:white;
+}
+
 a{
     text-decoration: none;
     color:white;
@@ -19,7 +24,7 @@ a{
     justify-content: space-between;
     align-items:center;
     background-color:#005eb8;
-    padding:8px 12px;
+    padding:10px 12px;
 }
 
 .navbar__logo{
@@ -41,7 +46,7 @@ a{
 }
 
 .navbar__menu :hover{
-    background:#d49466 ;
+    background:#86c5ff ;
     border-radius: 4px;
 }
 
@@ -51,7 +56,7 @@ a{
     position: absolute;
     right:32px;
     font-size: 24px;
-    color: #d49466;
+    color: #ffffff;
 
 }
 /* 반응형 웹: 미디어 쿼리 */
@@ -60,7 +65,7 @@ a{
     .navbar{
         flex-direction: column;
         align-items: flex-start;
-        padding: 8px 24px;
+        padding: 10px 24px;
     }
 
     .navbar__menu{
@@ -233,6 +238,7 @@ table.table {margin-left: auto; margin-right: auto;}
 }
 
 .bt_wrap a{
+    text-decoration: none;
     display: inline-block;
     min-width: 80px;
     margin-left:10px;
@@ -339,6 +345,10 @@ font-size:0;
         box-sizing:border-box;
     }
 
+    .board_list .a{
+        text-decoration: none;
+
+    }
 
 
     .board_list .writer,

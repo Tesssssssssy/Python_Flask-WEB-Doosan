@@ -19,12 +19,17 @@ def board():
     
     rows = cur.fetchall()
     return render_template("board.html", rows=rows)
+
+
     
 
 @board_views.route('/posts/new')
 def new():
     return render_template('board_new.html')
 
+
+
+#post 
 @board_views.route('/posts/create', methods=["POST"])
 def create():
     if request.method == 'POST':
@@ -37,8 +42,10 @@ def create():
         db.session.commit()
     
         # return render_template('create.html')
+        flash("글이 정상적으로 등록되었습니다.")
         return redirect('/posts/{}'.format(post.id))
     return render_template('board_create.html')
+
     
 @board_views.route('/posts/<int:id>')
 def read(id):
@@ -63,6 +70,7 @@ def delete(id):
     db.session.commit()
     
     return redirect('/board')
+
     
 @board_views.route('/posts/<int:id>/edit')
 def edit(id):
@@ -77,6 +85,7 @@ def update(id):
     # post.title = request.args.get('title')
     # post.content = request.args.get('content')
     db.session.commit()
+    flash ("글이 정상적으로 수정되었습니다.")
     
     return redirect('/posts/{}'.format(id))
     
@@ -91,6 +100,7 @@ def comments(post_id):
     db.session.commit()
     
     return redirect('/board')
+    
     
 @board_views.route('/comment/<int:id>/delete')
 def comment_delete(id):
