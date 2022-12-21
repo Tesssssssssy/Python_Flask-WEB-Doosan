@@ -25,7 +25,7 @@ class Info(db.Model):
     anxiety = db.Column(db.String(300))
     gloom = db.Column(db.String(300))
     createdat = db.Column(db.DateTime)
-    user_id = db.Column(db.Integer, db.ForeignKey(User.id))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     
     def __init__(self, drink, sleephour, sleepqual, tired, anxiety, gloom):
         self.drink = drink
