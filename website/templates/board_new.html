@@ -7,7 +7,7 @@
     <!--    <input type="submit">-->
     <!--</form>-->
 
-
+    <form action="/posts/create" method="POST">
         <div class="board_write_wrap">
           <div class="board_write">
               <div class="title">
@@ -23,16 +23,17 @@
                   </dl>
               </div>
               <div class="cont">
-                <textarea name="content" id="content" class="form-control"></textarea>
-          </div>
-
+                <textarea name="content" id="content" class="form-control"></textarea></div>
+            </div>
 
           <!-- 버튼 (등록/수정) -->
           <div class="bt_wrap">
               <button type="submit" class="btn btn-primary">등록</button>
-
           </div>
-      </form>
+        </div>
+
+    </form>
+
 
 
 {% endblock %} 
