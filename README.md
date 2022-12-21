@@ -52,8 +52,7 @@ css 미디어 쿼리를 통해 사용하는 기기의 사이즈에 맞춰 볼 �
 게시판에 등록된 글 목록입니다. 
 
 #### 2.게시글 등록
-
-
+<img width="612" alt="board_create(반응형" src="https://user-images.githubusercontent.com/112614954/208816319-ceb5251e-2668-4a8f-81ed-e8b97885422d.png">
 
 게시판에 올라가는 글을 쓰는 페이지 입니다. 
 
@@ -68,4 +67,15 @@ css 미디어 쿼리를 통해 사용하는 기기의 사이즈에 맞춰 볼 �
 #### 4. 게시글 삭제 및 수정 기능
 <img width="612" alt="board_new(반응형" src="https://user-images.githubusercontent.com/112614954/208712971-552b54e7-d43c-48c9-977b-141816955242.png">
 삭제/수정 버튼을 통해 글을 삭제 및 수정할 수 있습니다. 
+
+
+### 관리자 페이지 
+![KakaoTalk_Photo_2022-12-21-12-34-10 003](https://user-images.githubusercontent.com/112614954/208816550-2f52fdb1-32b5-4310-84af-592fe8fd15a4.jpeg)
+
+<img width="1058" alt="admin" src="https://user-images.githubusercontent.com/112614954/208816495-59945185-ef70-4cb3-af60-4d9d29a4605b.png">
+
+사용자들이 입력한 정보를 관리자가 볼 수 있도록 정리하여 만든 페이지입니다. 
+
+
+
 
