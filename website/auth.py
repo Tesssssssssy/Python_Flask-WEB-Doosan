@@ -1,10 +1,9 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User, Post
+from .models import User, Post, Info
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from sqlalchemy import desc
 from flask_login import login_user, login_required, logout_user, current_user
-import pandas as pd
 
 auth = Blueprint('auth', __name__)
 
@@ -113,8 +112,9 @@ def admin():
     if auth == "관리자":
         flash ("관리자로 접근 성공!", category='success')
         users = User.query.all() 
+        infos = Info.query.order_by(desc(Info.createdat)).all()
         
-        return render_template("admin.html", users=users)
+        return render_template("admin.html", users=users, infos=infos)
     else:
         flash("죄송합니다. 관리자만 접근할 수 있습니다.", category='error')
         return redirect(url_for('auth.login'))
@@ -124,10 +124,7 @@ def admin():
 @auth.route('/admin_data', methods=['GET', 'POST'])
 @login_required
 def admin_data():
-    if request.method == 'POST':
-        file = request.form['upload-file']
-        data = pd.read_excel(file)
-        return render_template("admin_data.html", data=data.to_html())
+    return render_template("admin_data.html")
         
     
 

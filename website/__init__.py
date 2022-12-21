@@ -23,7 +23,7 @@ def create_app():
     app.register_blueprint(mypage_views, url_prefix='/')
     app.register_blueprint(board_views, url_prefix='/')
     
-    from .models import User, Post, Comment
+    from .models import User, Info, Post, Comment
     
     with app.app_context():
         db.create_all()

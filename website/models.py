@@ -15,7 +15,27 @@ class User(db.Model, UserMixin):
     hearing = db.Column(db.String(100))
     sight = db.Column(db.String(100))
 
+class Info(db.Model):
+    __tablename__ = 'infos'
+    id = db.Column(db.Integer, primary_key=True)
+    drink = db.Column(db.String(300))
+    sleephour = db.Column(db.String(300))
+    sleepqual = db.Column(db.String(300))
+    tired = db.Column(db.String(300))
+    anxiety = db.Column(db.String(300))
+    gloom = db.Column(db.String(300))
+    createdat = db.Column(db.DateTime)
+    user_id = db.Column(db.Integer, db.ForeignKey(User.id))
     
+    def __init__(self, drink, sleephour, sleepqual, tired, anxiety, gloom):
+        self.drink = drink
+        self.sleephour = sleephour
+        self.sleepqual = sleepqual
+        self.tired = tired
+        self.anxiety = anxiety
+        self.gloom = gloom
+        self.createdat = datetime.datetime.today()
+        
 class Post(db.Model):                                        
     __tablename__ = "posts"
     id = db.Column(db.Integer, primary_key=True)             
@@ -28,7 +48,7 @@ class Post(db.Model):
     def __init__(self,title,content):
         self.title = title
         self.content = content
-        self.created_at = datetime.datetime.now() 
+        self.created_at = datetime.datetime.today() 
         
     
 class Comment(db.Model):
@@ -41,7 +61,7 @@ class Comment(db.Model):
     
     def __init__(self,content,creator):
         self.content = content
-        self.created_at = datetime.datetime.now()
+        self.created_at = datetime.datetime.today()
         self.creator = creator
         
     
