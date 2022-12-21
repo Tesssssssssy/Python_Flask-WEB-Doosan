@@ -52,7 +52,8 @@ css 미디어 쿼리를 통해 사용하는 기기의 사이즈에 맞춰 볼 �
 게시판에 등록된 글 목록입니다. 
 
 #### 2.게시글 등록 
-![Uploading 게시글 작성.png…]()
+<img width="1552" alt="게시글 작성" src="https://user-images.githubusercontent.com/112614954/208822817-be8e5a44-0bb4-4886-86bf-0a776d16df5b.png">
+
 
 게시판에 올라가는 글을 쓰는 페이지 입니다. 
 
