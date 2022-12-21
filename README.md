@@ -7,12 +7,12 @@ Web programming team project for 'Doosan enerability' which is developed by 임�
 - Python Flask (Flask, SQLAlchemy, flask_login, werkzeug.security, wtforms etc)
 - html/css
 - javascript
+- Bootstrap
 - sqlite3 (db)
 
 ## 설치 방법
 - git clone https://github.com/Tesssssssssy/WEB-Doosan.git
-- python-flask 가상환경 설치 
-    pip install virtualenv
+- python-flask 가상환경 설치 (pip install virtualenv)
 - flask_login, sqlalchemy 등 필요한 라이브러리 설치
 - python interpreter 변경 후 anaconda를 이용한 flask run
 
