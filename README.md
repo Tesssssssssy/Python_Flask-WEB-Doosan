@@ -47,20 +47,23 @@ css 미디어 쿼리를 통해 사용하는 기기의 사이즈에 맞춰 볼 �
 
 ### 게시판 
 #### 1. 게시글 목록
-<img width="1552" alt="board" src="https://user-images.githubusercontent.com/112614954/208712004-377f702b-2c16-4eb0-81a6-aff13f800b09.png">
+![KakaoTalk_Photo_2022-12-21-12-34-10 001](https://user-images.githubusercontent.com/112614954/208814868-ce4a224e-5050-44d9-9546-5fd98edfa8d8.jpeg)
+
 게시판에 등록된 글 목록입니다. 
 
 #### 2.게시글 등록
-<img width="1508" alt="board_create" src="https://user-images.githubusercontent.com/112614954/208712131-96a281bf-9966-4bd1-ac73-2dd90dd56896.png">
-<img width="612" alt="board_create(반응형" src="https://user-images.githubusercontent.com/112614954/208712180-5e15a1a7-6d0e-4d03-8eaf-42f1059da8bb.png">
-글을 쓰는 페이지입니다. 
+
+
+
+게시판에 올라가는 글을 쓰는 페이지 입니다. 
+
+
 
 #### 3. 게시글 보기 
-<img width="1552" alt="board_read" src="https://user-images.githubusercontent.com/112614954/208712335-e1ae0830-bd8f-47f1-876d-bd70e4f90fcd.png">
-<img width="612" alt="board_read(댓글기능" src="https://user-images.githubusercontent.com/112614954/208712426-c6464e42-1d9a-4177-bea2-17dec2df28f9.png">
-<img width="612" alt="board_read(반응형" src="https://user-images.githubusercontent.com/112614954/208712432-1eceff03-16ab-4b14-a83a-de8ef1b1d907.png">
+![KakaoTalk_Photo_2022-12-21-12-34-10 002](https://user-images.githubusercontent.com/112614954/208815869-dc722de4-db60-4b0a-8bba-942141516382.jpeg)
 
-댓글기능과 css미디어쿼리를 통해 만든 웹 반응형 게시글입니다. 게시글에서 수정과 삭제를 할 수 있습니다. 
+ css미디어쿼리를 통해 만든 웹 반응형 게시글입니다. 게시글에서 수정과 삭제를 할 수 있으며 댓글기능을 구현하였습니다. 댓글은 삭제만 가능합니다. 
+ 
 
 #### 4. 게시글 삭제 및 수정 기능
 <img width="612" alt="board_new(반응형" src="https://user-images.githubusercontent.com/112614954/208712971-552b54e7-d43c-48c9-977b-141816955242.png">
