@@ -60,7 +60,8 @@ css 미디어 쿼리를 통해 사용하는 기기의 사이즈에 맞춰 볼 �
 
 
 #### 3. 게시글 보기 
-![KakaoTalk_Photo_2022-12-21-12-34-10 002](https://user-images.githubusercontent.com/112614954/208815869-dc722de4-db60-4b0a-8bba-942141516382.jpeg)
+
+<img width="1552" alt="게시글 보기 " src="https://user-images.githubusercontent.com/112614954/208823486-1bb93a77-fe0e-4812-b883-b8fe5bfbdbfa.png">
 
 <img width="1552" alt="댓글작성" src="https://user-images.githubusercontent.com/112614954/208821947-5a8b6d68-6ec7-4da4-92fe-aa442a7690c5.png">
 

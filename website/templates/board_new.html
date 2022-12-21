@@ -6,16 +6,32 @@
     <!--    <input type="text" name="content">-->
     <!--    <input type="submit">-->
     <!--</form>-->
-    <form action="/posts/create" method="POST">
-        <div class="form-group">
-          <label for="title">제목</label>
-          <input name="title" type="text" class="form-control" id="title" placeholder="제목을 입력해주세요!">
-        </div>
-        <div class="form-group">
-          <label for="content">내용</label>
-          <textarea name="content" id="content" class="form-control"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        <div class="board_write_wrap">
+          <div class="board_write">
+              <div class="title">
+                  <dl>
+                      <dt>제목</dt>
+                      <dd>
+                        <input name="title" type="text" class="form-control" id="title" placeholder="제목을 입력해주세요!">
+                      </dd>
+                  </dl>
+                  <div class="info"/>
+                  <dl>
+                      <dt> 내용 </dt>
+                  </dl>
+              </div>
+              <div class="cont">
+                <textarea name="content" id="content" class="form-control"></textarea>
+          </div>
+
+
+          <!-- 버튼 (등록/수정) -->
+          <div class="bt_wrap">
+              <button type="submit" class="btn btn-primary">등록</button>
+
+          </div>
       </form>
 
 

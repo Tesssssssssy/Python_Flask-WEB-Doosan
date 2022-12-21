@@ -30,17 +30,17 @@
     <br>
     <br>
     <form action="/posts/{{post.id}}/comments" method='POST'>
-    </br><댓글 작성></br>
+    </br> <div style="padding:3px; font-style:bold"> <댓글 작성></div></br>
         이름 : <input type="text" name="creator" /></br>
         내용 : <input type="text" name="content"/>
         <input type='submit'/>
     </form>
     {% for comment in post.comments %}
     <hr>
-        <p>내용: {{comment.content}} </p>
-        <p>이름: {{comment.creator}}</p>
+        <p style="padding:1px">내용: {{comment.content}} </p>
+        <p style="padding:1px">이름: {{comment.creator}}</p>
         <p>작성일: {{comment.created_at}}</p>
-        <a href="/comment/{{comment.id}}/delete">댓글삭제</a>
+        <a style="display:block;" href="/comment/{{comment.id}}/delete">댓글삭제</a>
         <br>
         
     {% endfor %}

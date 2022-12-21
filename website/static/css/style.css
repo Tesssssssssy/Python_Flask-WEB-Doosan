@@ -156,11 +156,12 @@ table.table {margin-left: auto; margin-right: auto;}
 }
 
 .board_list .date{
-    width:10%
+    width:10%;
 }
 
 .board_list .view{
-    width:10%
+    width:10%;
+    
 }
 
 
@@ -259,14 +260,18 @@ table.table {margin-left: auto; margin-right: auto;}
 }
 
 
-/*글쓰기(&수정 페이지)*/
+/*글쓰기(&수정 페이지&보기 페이지 )*/
 .board_write{
     border-top:2px solid #000;
 }
 
-.board_write .title,
-.board_write .info{
+.board_write .title{
     padding:15px;
+}
+
+.board_write .info{
+    padding:0px;
+
 }
 
 .board_write .title dl{
@@ -309,7 +314,7 @@ font-size:0;
 .board_write .title input[type="text"],
 .board_write .info input[type="text"],
 .board_write .info input[type="password"]{
-    padding : 10px;
+    padding : 15px;
     box-sizing: border-box;
 }
 
@@ -333,6 +338,8 @@ font-size:0;
     border:0;
     resize:vertical;
 }
+
+
 
 
 /* 게시판 미디어 쿼리 */
@@ -367,3 +374,4 @@ font-size:0;
 
 
 }
+
